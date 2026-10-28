@@ -32,9 +32,9 @@
     .swatch i { width: 34px; height: 16px; border-radius: 3px; display: block; }
     .repos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     .repo { border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; background: var(--panel); display: flex; flex-direction: column; gap: 6px; min-height: 160px; }
-    .repo.big { grid-column: span 2; }
+
     .repo .top { display: flex; justify-content: space-between; color: var(--dim); font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
-    .repo .name { color: var(--amber); font-size: 22px; font-weight: 700; word-break: break-all; }
+    .repo .name { color: var(--amber); font-size: 22px; font-weight: 700; overflow-wrap: anywhere; }
     .repo .desc { color: var(--fg); font-size: 14px; opacity: .85; flex: 1; }
     .repo .lang { font-size: 13px; color: var(--dim); display: flex; align-items: center; gap: 8px; }
     .repo .lang b { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
@@ -131,7 +131,7 @@
     $("copy").textContent = "© " + now.getFullYear() + " Raghav Daksh";
 
     $("repos").innerHTML = data.pinned.map((r, i) => `
-      <div class="repo ${i === 0 ? "big" : ""}">
+      <div class="repo">
         <div class="top"><span>${esc(r.topic)}</span><span>★ ${r.stars}</span></div>
         <div class="name">${esc(r.title)}</div>
         <div class="desc">${esc(r.description) || "<span style='color:var(--dim)'>no description</span>"}</div>

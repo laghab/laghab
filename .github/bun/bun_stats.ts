@@ -28,7 +28,7 @@ const lastYearEnd = new Date(
   0,
 ).toISOString();
 
-const pinnedReposQuery = config.pinned
+const pinnedReposQuery = [...config.pinned, { name: config.featured.name, topic: "featured" }]
   .map(
     (repo, index) => `
   repo${index}: repository(owner: $username, name: "${repo.name}") {
@@ -194,6 +194,19 @@ export async function generateStats() {
     })
     .filter(Boolean);
 
+  const fr = data[`repo${config.pinned.length}`];
+  const featured = fr
+    ? {
+        ...config.featured,
+        title: fr.name,
+        description: fr.description,
+        language: fr.primaryLanguage?.name || "N/A",
+        language_color: fr.primaryLanguage?.color || "#ccc",
+        stars: fr.stargazerCount,
+        url: fr.url,
+      }
+    : null;
+
   const languageStats: Record<string, { size: number; color: string }> = {};
   let totalSize = 0;
 
@@ -333,7 +346,7 @@ export async function generateStats() {
     const activityType = getActivityType(topLang);
     const monthName = new Date().toLocaleString("default", { month: "long" });
 
-    monthlyFocusHtml = `${monthName} saw a significant shift towards ${activityType}, with heavy activity in <span class="text-accent font-medium">${topLang}</span> configurations for the <span class="text-accent font-medium">${topRepo}</span> setup.`;
+    monthlyFocusHtml = `${monthName}: most commits went to <span class="accent">${topRepo}</span> (${topLang}). Job search runs on autopilot with <span class="accent">claude-job-hunt</span>.`;
   }
 
   const chronicle = {
@@ -364,6 +377,7 @@ export async function generateStats() {
 
   return {
     hero,
+    featured,
     pinned,
     chronicle,
   };

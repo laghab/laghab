@@ -4,6 +4,6 @@
 
 <p align="center">
   <a href="https://github.com/laghab/claude-watch">claude-watch</a> ·
-  <a href="https://github.com/laghab/pitara">pitara</a> ·
+  <a href="https://github.com/laghab/wisp">wisp</a> ·
   <a href="https://raghavdaksh.com">raghavdaksh.com</a>
 </p>

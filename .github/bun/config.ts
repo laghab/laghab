@@ -2,7 +2,7 @@ export const config = {
   username: "laghab",
   pinned: [
     { name: "claude-watch", topic: "Claude Code Dashboard" },
-    { name: "pitara", topic: "Local-first Gallery" },
+    { name: "wisp", topic: "Private Android Keyboard" },
     { name: "omniroute-ctl", topic: "Terminal TUI" },
     { name: "steam-onboard", topic: "Steam Automation" },
     { name: "python-course", topic: "Interactive Course" },

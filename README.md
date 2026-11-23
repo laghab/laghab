@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/laghab/laghab/main/profile.svg?v=1795322634" alt="Raghav Daksh — profile" width="100%" />
+  <img src="https://raw.githubusercontent.com/laghab/laghab/main/profile.svg?v=1795411282" alt="Raghav Daksh — profile" width="100%" />
 </div>
 
 <p align="center">
